@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <html lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <title>Contact Me | Abdul Vajid M</title>
+    <link rel="icon" type="image/x-icon" href="/images/fav-icon.png">
 
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,13 +112,13 @@
                     <div class="card mt-2 mx-auto p-4 bg-light">
                         <div class="card-body bg-light">
                             <div class="container">
-                                <form id="contact-form" role="form">
+                                <form id="submit-form" role="form" action="">
                                     <div class="controls">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="form_name">Firstname *</label>
-                                                    <input id="form_name" type="text" name="name" class="form-control"
+                                                    <input id="form_name" type="text" name="firstname" class="form-control"
                                                         placeholder="Enter your firstname *" required="required"
                                                         data-error="Firstname is required.">
                                                 </div>
@@ -150,9 +144,9 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="phone-num">Phone</label>
-                                                    <input id="phone-num" type="tel" name="phone"
-                                                        class="form-control" placeholder="Enter your phone number"
-                                                         data-error="Valid email is required.">
+                                                    <input id="phone-num" type="tel" name="phone" class="form-control"
+                                                        placeholder="Enter your phone number"
+                                                        data-error="Valid email is required.">
                                                 </div>
                                             </div>
                                         </div>
@@ -167,7 +161,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <input type="submit" class="btn-preset btn-send pt-2 btn-block" value="Send Message">
+                                                <input type="submit" class="btn-preset btn-send pt-2 btn-block"
+                                                    value="Send Message">
                                             </div>
                                         </div>
                                     </div>
@@ -218,5 +213,25 @@
     <script src="plugins/counto/counTo.js"></script>
     <!-- Main Script -->
     <script src="js/script.js"></script>
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbz4PoNDh3HLBzdaPoPY_Nq7v_tePmekWchdUcn5W53pNX5-9sY_7soJTPZQtBxNOqmt/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    window.location.href="#"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
 
 </html>
